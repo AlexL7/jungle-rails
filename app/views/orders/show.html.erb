@@ -7,6 +7,38 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+     <table class="table table-bordered">
+       <thead>
+         <tr>
+           <th colspan="2">Name</th>
+           <th>Description</th>
+           <th>Quantity</th>
+           <th>Product Price </th>
+           <th>Product Total </th>
+         </tr>
+       </thead>
+       <tbody>
+          <% @order_total = 0 %>
+          <% @lineitems.each do |product| %>
+            <%= render 'order' , product: product %>
+          <% end %>
+      </tbody>
+       <tfoot>
+          <tr>
+            </th>
+            <th colspan="5">
+                SUB TOTAL: <br>
+                HST (13%) <br>
+                TOTAL + HST:
+              </th>
+               <th>
+                $<%= @order_total.round(2)%><br>
+                $<%= (@order_total*0.13).round(2) %><br>
+                $<%= (@order_total + @order_total*0.13).round(2) %>
+              </th>
+              </tr>
+          </tfoot>
+     </table>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
