@@ -5,7 +5,8 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
+    <h4>    Thank you for your order <%= current_user.firstname %> !  --- Email used : <%= current_user.email %>
+    </h4>
   </div>
      <table class="table table-bordered">
        <thead>
