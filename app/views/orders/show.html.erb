@@ -27,14 +27,10 @@
           <tr>
             </th>
             <th colspan="5">
-                SUB TOTAL: <br>
-                HST (13%) <br>
-                TOTAL + HST:
+                TOTAL
               </th>
                <th>
-                $<%= @order_total.round(2)%><br>
-                $<%= (@order_total*0.13).round(2) %><br>
-                $<%= (@order_total + @order_total*0.13).round(2) %>
+                $<%= @order_total.round(2)%>
               </th>
               </tr>
           </tfoot>
