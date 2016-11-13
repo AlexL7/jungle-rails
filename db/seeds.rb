@@ -135,28 +135,28 @@ puts "Creating Reviews"
 
 Review.destroy_all
 
-review.create!({
+Review.create!({
   product_id: 11,
   user_id: 1,
   description: Faker::Hipster.paragraph(4),
   rating: 2,
 })
 
-review.create!({
+Review.create!({
   product_id: 11,
-  user_id: 1,
+  user_id: 4,
   description: Faker::Hipster.paragraph(4),
   rating: 3,
 })
 
-review.create!({
+Review.create!({
   product_id: 10,
-  user_id: 1,
+  user_id: 3,
   description: Faker::Hipster.paragraph(4),
   rating: 1,
 })
 
-review.create!({
+Review.create!({
   product_id: 10,
   user_id: 2,
   description: Faker::Hipster.paragraph(4),
