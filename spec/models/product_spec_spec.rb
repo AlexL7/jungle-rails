@@ -4,14 +4,6 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 
   before do
-      @product = Product.create(
-                       name:"Fancy Chair",
-                       description: "Elegant chair sutible for all rooms",
-                       image:'/images/fancy_chair',
-                       price_cents: 8900,
-                       quantity: 10
-                      )
-
       @category = Category.create(name: "chairs")
   end
 
@@ -19,29 +11,43 @@ RSpec.describe Product, type: :model do
 
 
   context "Validations" do
-    it "has a name" do
-      expect(@product.name).to be_truthy
+
+
+    it "has all valid properties " do
+      @product = Product.create(name:"Big Chair", price: 1,
+                                quantity: 1, category: @category)
+      @product.validate!
+      @product.errors.full_messages
     end
 
-    it "has a price" do
-      expect(@product.price).to be_truthy
+    it "must have a name" do
+         @product = Product.create(name: nil, price: 1,
+                                quantity: 1, category: @category)
+         expect(@product).to_not be_valid
+         expect(@product.errors.full_messages).to include("Name can't be blank")
     end
 
-    it "has a quantity" do
-      expect(@product.quantity).to be_truthy
+    it "must have price" do
+         @product = Product.create(name: "Big Chair", price: nil,
+                                quantity: 1, category: @category)
+         expect(@product).to_not be_valid
+         expect(@product.errors.full_messages).to include("Price can't be blank")
     end
 
-    it "has a category" do
-      expect(@product.quantity).to be_truthy
+     it "must have a quantity" do
+         @product = Product.create(name: "Big Chair", price: 1,
+                                quantity: nil, category: @category)
+         expect(@product).to_not be_valid
+         expect(@product.errors.full_messages).to include("Quantity can't be blank")
     end
 
-      it "should validate a product" do
-      expect(@product).to eq(nil)
+      it "must have a category" do
+         @product = Product.create(name: "Big Chair", price: 1,
+                                quantity: 1, category: nil)
+         expect(@product).to_not be_valid
+         expect(@product.errors.full_messages).to include("Category can't be blank")
     end
+
   end
-
-
-
-
 
 end
