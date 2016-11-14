@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
 
-
-
   context "Validations" do
 
     it "has all valid properties " do
@@ -80,6 +78,21 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  describe '.authenticate_with_credentials' do
+
+
+    it "must have email to sign in" do
+      @user_register = User.create(firstname:"Alex", lastname: "Lock", email:"alex@lock.com" ,
+                          password:"123456", password_confirmation: "123456")
+
+      @user_signin = User.authenticate_with_credentials("alex@lock.com","123456")
+
+      expect(@user_register).to eq(@user_signin)
+      #expect(@user_signin.errors.full_messages).to include("Invalid Email and Password")
+    end
+  end
+
 
 
 end
