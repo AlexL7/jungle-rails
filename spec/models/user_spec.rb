@@ -52,19 +52,31 @@ RSpec.describe User, type: :model do
 
 
 
+      it "must have a password" do
 
-
-
-      xit "must have a password" do
+         @user = User.create(firstname:"Alex", lastname: "Lock", email: "alex@lock.com",
+                          password: nil, password_confirmation: "123456")
 
          expect(@user).to_not be_valid
          expect(@user.errors.full_messages).to include("Password can't be blank")
-    end
+      end
 
-     xit "must have a password confirmation" do
+      it "must have a minimun password length of 6" do
+          @user = User.create(firstname:"Alex", lastname: "Lock", email: "alex@lock.com",
+                          password: "1234", password_confirmation: "1234")
+
+          expect(@user).to_not be_valid
+          expect(@user.errors[:password]).to include("is too short (minimum is 6 characters)")
+        end
+
+
+     it "must have a password confirmation" do
+
+         @user = User.create(firstname:"Alex", lastname: "Lock", email:"alex@lock.com" ,
+                          password:"123456", password_confirmation: nil)
 
          expect(@user).to_not be_valid
-         expect(@user.errors.full_messages).to include("PasswordConfiramtion can't be blank")
+         expect(@user.errors.full_messages).to include("Password confirmation can't be blank")
     end
 
   end
