@@ -138,30 +138,31 @@ Review.destroy_all
 Review.create!({
   product_id: 11,
   user_id: 1,
-  description: Faker::Hipster.paragraph(4),
+  description: "Has a shocking feeling",
   rating: 2,
 })
 
 Review.create!({
   product_id: 11,
   user_id: 4,
-  description: Faker::Hipster.paragraph(4),
+  description: "Really electrifies the room",
   rating: 3,
 })
 
 Review.create!({
   product_id: 10,
   user_id: 3,
-  description: Faker::Hipster.paragraph(4),
+  description: "Impossible to get comfortable",
   rating: 1,
 })
 
 Review.create!({
   product_id: 10,
   user_id: 2,
-  description: Faker::Hipster.paragraph(4),
+  description: "I now have so much extra room",
   rating: 4,
 })
+
 
 
 
