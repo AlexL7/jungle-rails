@@ -1,7 +1,10 @@
 class Admin::CategoriesController < ApplicationController
 
+  #Admin controls to view, create and destory catergories.
+
+  # Authentication for each admin page with credintails in the .env file
   http_basic_authenticate_with :name => ENV['ADMIN_USERNAME'], :password => ENV['ADMIN_PASSWORD']
-  #http_basic_authenticate_with :name => 'Jungle', :password => 'book'
+
 
 
   def index
@@ -28,7 +31,7 @@ class Admin::CategoriesController < ApplicationController
     redirect_to [:admin, :categories], notice: 'Category deleted!'
   end
 
-   private
+  private
 
    def category_params
       params.require(:category).permit(

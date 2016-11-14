@@ -163,6 +163,15 @@ Review.create!({
   rating: 4,
 })
 
+#Sample User
+User.create!{
+  firstname: "user",
+  lastname: "test",
+  email: "user@test.com",
+  password:"test",
+  password_confirmation: "test"
+}
+
 
 
 

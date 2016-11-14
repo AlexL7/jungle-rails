@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
+  #Admin controls to view, create and destory products.
+
   http_basic_authenticate_with :name => ENV['ADMIN_USERNAME'], :password => ENV['ADMIN_PASSWORD']
   #http_basic_authenticate_with :name => 'Jungle', :password => 'book'
   def index

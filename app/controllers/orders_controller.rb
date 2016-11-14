@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+ #Controller to view and create orders
+
   def show
     @order = Order.find(params[:id])
     @lineitems = Product.joins(line_items: :order).where('line_items.order_id' => params[:id]).select('products.id, products.image, products.name, products.description, line_items.quantity, line_items.item_price_cents, line_items.total_price_cents')

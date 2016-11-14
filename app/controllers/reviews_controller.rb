@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
    before_action :require_login
 
+#Create and destory reviews as a user if logged in
+
    def create
      @product = Product.find(params[:product_id].to_i)
      @review = @product.reviews.new(description: params[:review][:description],
