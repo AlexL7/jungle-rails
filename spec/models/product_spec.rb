@@ -7,9 +7,6 @@ RSpec.describe Product, type: :model do
       @category = Category.create(name: "chairs")
   end
 
-
-
-
   context "Validations" do
 
 
