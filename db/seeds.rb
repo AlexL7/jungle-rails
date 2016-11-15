@@ -164,13 +164,13 @@ Review.create!({
 })
 
 #Sample User
-User.create!{
+User.create!({
   firstname: "user",
   lastname: "test",
   email: "user@test.com",
-  password:"test",
-  password_confirmation: "test"
-}
+  password:"123456",
+  password_confirmation: "123456"
+})
 
 
 

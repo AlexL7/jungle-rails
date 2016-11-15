@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
 
 
  def current_user
+  if (session[:user_id]= 2)
+    puts "no current user"
+  else
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
  end
  helper_method :current_user
 
