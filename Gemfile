@@ -36,6 +36,12 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 
+
+group :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,7 +52,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "letter_opener", :group => :development
   gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda-matchers', '~> 3.0', require: false
 end
 
 
